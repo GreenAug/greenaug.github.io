@@ -27,24 +27,26 @@ function appendQueryParams(url) {
 }
 
 
-function setResultVideo(task, method, videoData) {
-  const videoUrls = videoData[`${task}/${method}`];
+async function setResultVideo(task, method) {
+  const baseVideoPath = "static/videos/scene_generalisation";
 
   ids = ["#train-scene", "#test-scene-1", "#test-scene-2", "#test-scene-3"];
   for (i = 0; i < ids.length; i++) {
-    if (!videoUrls[i]) {
-      $(ids[i]).attr('src', 'about:blank');
+    if (ids[i] === "#train-scene") {
+      fileName = "train-scene.mp4";
     } else {
-      $(ids[i]).attr("src", appendQueryParams(videoUrls[i]));
+      fileName = `${method}-${ids[i].substring(1)}.mp4`;
     }
+    var filePath = `${baseVideoPath}/${task}/${fileName}`;
+
+    $(ids[i]).attr("src", filePath);
   }
 }
 
 async function handleMenuChange() {
-  const videoData = await loadVideoData();
   const taskValue = $('#single-menu-task').val();
   const methodValue = $('#single-menu-method').val();
-  setResultVideo(taskValue, methodValue, videoData);
+  setResultVideo(taskValue, methodValue);
 }
 
 
@@ -94,5 +96,5 @@ $(document).ready(async function () {
   const videoData = await loadVideoData();
   const initialTaskValue = $('#single-menu-task').val();
   const initialMethodValue = $('#single-menu-method').val();
-  setResultVideo(initialTaskValue, initialMethodValue, videoData);
+  setResultVideo(initialTaskValue, initialMethodValue)
 })
