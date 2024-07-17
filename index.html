@@ -73,10 +73,9 @@
               <div class="publication-links">
                 <!-- PDF Link. -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/2407.07868"
-                     class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://arxiv.org/abs/2407.07868" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
-                        <i class="ai ai-arxiv"></i>
+                      <i class="ai ai-arxiv"></i>
                     </span>
                     <span>arXiv</span>
                   </a>
@@ -84,18 +83,18 @@
                 <!-- Code Link. -->
                 <span class="link-block">
                   <a href="https://github.com/eugeneteoh/greenaug"
-                     class="external-link button is-normal is-rounded is-dark">
+                    class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
-                        <i class="fab fa-github"></i>
+                      <i class="fab fa-github"></i>
                     </span>
                     <span>Code</span>
-                    </a>
+                  </a>
                 </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    </div>
   </section>
 
   <section class="hero teaser">
@@ -143,18 +142,18 @@
       </div>
   </section>
 
-      <!-- Paper video. -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Video</h2>
-          <div class="publication-video">
-            <iframe src="https://www.youtube.com/embed/KWG9JUkUAxQ?si=ih8OQ811nfBsKAnu?rel=0&amp;showinfo=0"
-                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
+  <!-- Paper video. -->
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Video</h2>
+      <div class="publication-video">
+        <iframe src="https://www.youtube.com/embed/KWG9JUkUAxQ?si=ih8OQ811nfBsKAnu?rel=0&amp;showinfo=0" frameborder="0"
+          allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </div>
-      <!--/ Paper video. -->
     </div>
+  </div>
+  <!--/ Paper video. -->
+  </div>
   </section>
 
   <section class="section">
@@ -237,13 +236,13 @@
     <div class="container is-max-widescreen">
       <div class="rows">
         <h2 class="title is-3">Results</h2>
-        <h3 class="title is-4">Scene Generalisation</h3>
+        <h3 class="title is-4">Scene Generalisation with Imitation Learning</h3>
         <div class="columns">
           <div class="column has-text-centered">
             Task
             <div class="select is-small">
               <select id="single-menu-task">
-                <option value="open_drawer", selected="selected">Open Drawer</option>
+                <option value="open_drawer" , selected="selected">Open Drawer</option>
                 <option value="place_cube_in_drawer">Place Cube in Drawer</option>
                 <option value="sweep_coffee_beans">Sweep Coffee Beans</option>
                 <option value="take_lid_off_saucepan">Take Lid off Saucepan</option>
@@ -269,21 +268,15 @@
           <div class="column has-text-centered">
             Train Scene
             <div class="task-video">
-              <!-- <iframe id="train-scene" width="100%" title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
-                <video id="train-scene" autoplay controls muted loop playsinline height="100%">
-                  <source type="video/mp4">
-                </video>
+              <video id="train-scene" autoplay controls muted loop playsinline height="100%">
+                <source type="video/mp4">
+              </video>
             </div>
             Test Scene 2
             <div class="task-video">
-              <!-- <iframe id="test-scene-2" , width="100%" title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
-                <video id="test-scene-2" autoplay controls muted loop playsinline height="100%">
-                  <source type="video/mp4">
-                </video>
+              <video id="test-scene-2" autoplay controls muted loop playsinline height="100%">
+                <source type="video/mp4">
+              </video>
             </div>
           </div>
           <div class="column has-text-centered">
@@ -301,6 +294,33 @@
             </div>
           </div>
         </div>
+
+        <h3 class="title is-4">Further Study: Scene Generalisation with Reinforcement Learning</h3>
+        <div class="column has-text-centered">
+          We also applied GreenAug to <a href="https://younggyo.me/cqn/">Coarse-to-fine Deep Q Network</a>, a
+          value-based reinforcement learning algorithm.
+        </div>
+        <div class="columns">
+          <div class="column has-text-centered">
+            Train Scene
+            <div class="task-video">
+              <video id="train-scene" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/scene_generalisation/rl/train-scene.mp4" type="video/mp4">
+              </video>
+            </div>
+            Green screen cloth placed on table
+          </div>
+          <div class="column has-text-centered">
+            Test Scene
+            <div class="task-video">
+              <video id="test-scene-1" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/scene_generalisation/rl/test-scene.mp4" type="video/mp4">
+              </video>
+            </div>
+            Green screen cloth removed; added distractors on the table
+          </div>
+        </div>
+
   </section>
   <footer class="footer">
     <div class="container">

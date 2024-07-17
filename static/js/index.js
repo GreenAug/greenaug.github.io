@@ -1,32 +1,6 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
 
-async function loadVideoData() {
-  try {
-    const response = await fetch('static/videos.json');
-    const videoData = await response.json();
-    return videoData;
-  } catch (error) {
-    console.error('Error fetching JSON:', error);
-    return {};
-  }
-}
-
-function appendQueryParams(url) {
-  // Extract the video ID from the URL
-  const urlParts = url.split('?');
-  const baseUrl = urlParts[0];
-  const queryString = urlParts[1];
-  const videoId = baseUrl.split('/').pop();
-
-  // Create new query parameters
-  const newParams = `autoplay=1&loop=1&playlist=${videoId}&mute=1&rel=0`;
-
-  // Return the new URL with the appended query parameters
-  return `${baseUrl}?${queryString}&${newParams}`;
-}
-
-
 async function setResultVideo(task, method) {
   const baseVideoPath = "static/videos/scene_generalisation";
 
@@ -93,7 +67,6 @@ $(document).ready(async function () {
   bulmaSlider.attach();
 
   // Load initial data and set initial iframe src values
-  const videoData = await loadVideoData();
   const initialTaskValue = $('#single-menu-task').val();
   const initialMethodValue = $('#single-menu-method').val();
   setResultVideo(initialTaskValue, initialMethodValue)
